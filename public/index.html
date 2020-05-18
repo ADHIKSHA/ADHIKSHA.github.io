@@ -1,0 +1,184 @@
+<html>
+  <head>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+<style type="text/css">
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+    .popup {
+  margin: 70px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 5px;
+  width: 30%;
+  position: relative;
+  transition: all 5s ease-in-out;
+}
+
+.popup h2 {
+  margin-top: 0;
+  color: #333;
+  font-family: Tahoma, Arial, sans-serif;
+}
+.popup .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #333;
+}
+.popup .close:hover {
+  color: #06D85F;
+}
+.popup .content {
+  max-height: 30%;
+  overflow: auto;
+}
+
+@media screen and (max-width: 700px){
+  .box{
+    width: 70%;
+  }
+  .popup{
+    width: 70%;
+  }
+}
+</style>
+  </head>
+  <body>
+<br>
+     <p style="height: 50px;color:#4CAF50 ;font-weight:bolder;font-size: 25px;text-align: center; " id="main"> Video Call With your Friends!!</p>
+
+
+     <div style="margin-left: 100px;">
+     <button onclick="showMyFace()" type="button" class="btn btn-primary btn-lg" id="createroom" style="width:300px"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> Open Camera and Audio</button>
+
+     <a href="#games" type="button" class="btn btn-primary btn-lg" id="createroom" style="width:300px;position: absolute; right: 200px;"><span  aria-hidden="true"></span> Go to Games</a> 
+   <br>
+    <video id="yourVideo" style="width: 600px;height: 400px;border-style:solid;border-width: 5px;border-color: blue; " muted playsinline controls autoplay ></video>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <video id="friendsVideo" style="width: 600px;height: 400px;border-style:solid;border-width: 5px;border-color: blue;" autoplay controls playsinline></video>
+    <br />
+    <div>
+<br>
+
+<button  id="share_screen" style="width: 300px;height:50px;background-color: #4CAF50;font-size: 20px;text-align: center;" ><img src="css/shareicon.webp" style="height: 30px;width: 30px;"> Share Your screen </button>
+
+</div>
+<br>
+<div style="margin-left: 100px;font-size: 15px;">
+Settings:- &nbsp;&nbsp;&nbsp;
+aspectRatio: <select id="aspectRatio">
+    <option value="default">Default</option>
+    <option value="1.77">16:9</option>
+    <option value="1.33">4:3</option>
+    <option value="2.35">21:9</option>
+    <option value="1.4">14:10</option>
+    <option value="1.9">19:10</option>
+</select>
+
+frameRate: <select id="frameRate">
+    <option value="default">Default</option>
+    <option>30</option>
+    <option>25</option>
+    <option>15</option>
+    <option>5</option>
+</select>
+
+resolutions: <select id="resolutions">
+    <option value="default">Default</option>
+    <option value="fit-screen">Fit Screen</option>
+    <option>4K</option>
+    <option>1080p</option>
+    <option>720p</option>
+</select>
+
+cursor: <select id="cursor">
+    <option value="default">Default</option>
+    <option>always</option>
+    <option>never</option>
+    <option>motion</option>
+</select>
+
+displaySurface: <select id="displaySurface">
+    <option value="default">Default</option>
+    <option>monitor</option>
+    <option>window</option>
+    <option>application</option>
+    <option>browser</option>
+</select>
+
+logicalSurface: <select id="logicalSurface">
+    <option value="default">Default</option>
+    <option>true</option>
+</select>
+
+<br>
+</div>
+<br>
+<div style="margin-left: 300px;"> 
+     <button onclick="createRoom()" type="button" class="btn btn-primary btn-lg" id="createroom" style="width:300px;"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> Create Room</button> 
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <button onclick="JoinRoom()" type="button" class="btn btn-primary btn-lg" id="joinroom" style="width:350px;"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> Join Room</button>
+  </div>
+  </div>
+  <br>
+        <div style="display: inline-block;">
+        <p hidden="true" id="roomdes" style="font-size: 20px;"> Your Room Id is </p>
+         </div>
+        <div style="display: inline-block;">
+        <input type="text" name="roomId" id="roomId" hidden="true" style="width: 200px;font-size: 20px;background-color: ">
+       </div>
+
+    <!--<video id="sharedscreen" width="320" height="240" controls ></video>
+    <button  id="connect" onclick="share_screen_connect()"> Sahre screen </button>-->
+<h2 style="background-color:#F08080;height:150px;text-align:center;font-size: 40px;color: white;font-weight: bolder;" id="games"><br><br>
+<i>GAMES</i>
+</h2>
+<div style="margin-left: 100px;">
+ <button onclick="headsup()"  class="btn btn-primary btn-lg" style="width: 200px;height:200px;margin-left: 100px;font-size: 30px;font-weight: bolder;" >Heads UP!!</button><br>
+ &nbsp;
+ <a href="#headrules" style="font-size: 25px;">Heads Up Rules</a>
+<div id="headrules" class="overlay">
+    <div class="popup">
+        <h2>Heads up Rules</h2>
+        <a class="close" href="">&times;</a>
+        <div class="content">
+            A movie will pop up on your screen. You have to act it out in 1 min. Then the timer goes off and your partner has to guess the movieby typing it in the prompt.Sounds Cool !?
+        </div>
+    </div>
+</div>
+</div>
+<br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br>
+    <script src="https://www.webrtc-experiment.com/common.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+
+<!-- Optional: include a polyfill for ES6 Promises for IE11 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.13/dist/sweetalert2.all.min.js"></script>
+    <script src="js/script.js"></script>
+
+    <script src="js/games.js"></script>
+   <!-- <script src="js/screener.js"></script>-->
+    <script src="js/screen-sharing-min.js"></script>
+  </body>
+</html>
+
+
