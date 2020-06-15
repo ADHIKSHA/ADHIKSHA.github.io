@@ -62,30 +62,44 @@
 }
 </style>
   </head>
-  <body>
-<br>
-     <p style="height: 50px;color:#4CAF50 ;font-weight:bolder;font-size: 25px;text-align: center; " id="main"> Video Call With your Friends!!</p>
+  <body style="background-color: #3a3e4b;">
+	<br>
+     <p style="height: 50px;color:white ;font-weight:bolder;font-size: 30px;text-align: center;" id="main"> VC and MORE</p>
 
 
      <div style="margin-left: 100px;">
-     <button onclick="showMyFace()" type="button" class="btn btn-primary btn-lg" id="createroom" style="width:300px"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> Open Camera and Audio</button>
+     	<div> 
+     <button onclick="showMyFace()" type="button" class="btn btn-primary btn-lg" id="createroom" style="width:300px;height:50px;border-radius: 12px;background-color: #1e1f26;border-color: black;"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> Open Camera and Audio</button>
 
-     <a href="#games" type="button" class="btn btn-primary btn-lg" id="createroom" style="width:300px;position: absolute; right: 200px;"><span  aria-hidden="true"></span> Go to Games</a> 
-   <br>
-    <video id="yourVideo" style="width: 600px;height: 400px;border-style:solid;border-width: 5px;border-color: blue; " muted playsinline controls autoplay ></video>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <video id="friendsVideo" style="width: 600px;height: 400px;border-style:solid;border-width: 5px;border-color: blue;" autoplay controls playsinline></video>
-    <br />
-    <div>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+     <button onclick="createRoom()" type="button" class="btn btn-primary btn-lg" id="createroom" style="width:175px;height:50px;border-radius: 12px;background-color: #1e1f26;border-color: black;"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> Create Room</button> 
+    <button onclick="JoinRoom()" type="button" class="btn btn-primary btn-lg" id="joinroom" style="width:175px;height:50px;border-radius: 12px;background-color: #1e1f26;border-color: black;"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> Join Room</button>
+    <button onclick="EndCall()" type="button" class="btn btn-primary btn-lg" id="joinroom" style="width:170px;height :50px;color: red;border-radius: 12px;background-color: #1e1f26;border-color: black;"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> End Call</button>
+  </div>
 <br>
-
-<button  id="share_screen" style="width: 300px;height:50px;background-color: #4CAF50;font-size: 20px;text-align: center;" ><img src="css/shareicon.webp" style="height: 30px;width: 30px;"> Share Your screen </button>
-
 </div>
-<br>
-<div style="margin-left: 100px;font-size: 15px;">
-Settings:- &nbsp;&nbsp;&nbsp;
-aspectRatio: <select id="aspectRatio">
+
+
+
+<div style="margin-left: 100px;">
+
+    <video id="yourVideo" style="width: 640px;height: 480px;border-style:solid;border-width: 2px; " muted playsinline controls autoplay ></video>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <video id="friendsVideo" style="width: 640px;height: 480px;border-style:solid;border-width: 2px;" autoplay controls playsinline></video>
+    <br /> <br>
+
+<button  id="share_screen" style="width: 250px;height:50px;background-color: #31c933;border-radius: 12px;border-color:#31c933;color:white;font-size: 20px;text-align: center;color: black;" ><img src="css/shareicon.webp" style="height: 30px;width: 30px;"> Share Your screen </button>
+
+
+<br><br>
+
+
+<div style="font-size: 17px;color: white;">
+Screen Share Settings:- <br>
+
+Aspect Ratio: <select id="aspectRatio" style="color: black;">
     <option value="default">Default</option>
     <option value="1.77">16:9</option>
     <option value="1.33">4:3</option>
@@ -93,39 +107,39 @@ aspectRatio: <select id="aspectRatio">
     <option value="1.4">14:10</option>
     <option value="1.9">19:10</option>
 </select>
-
-frameRate: <select id="frameRate">
+&nbsp;&nbsp;&nbsp;
+Frame Rate: <select id="frameRate"  style="color: black;">
     <option value="default">Default</option>
     <option>30</option>
     <option>25</option>
     <option>15</option>
     <option>5</option>
 </select>
-
-resolutions: <select id="resolutions">
+&nbsp;&nbsp;&nbsp;
+Resolutions: <select id="resolutions"  style="color: black;">
     <option value="default">Default</option>
     <option value="fit-screen">Fit Screen</option>
     <option>4K</option>
     <option>1080p</option>
     <option>720p</option>
 </select>
-
-cursor: <select id="cursor">
+&nbsp;&nbsp;&nbsp;
+Cursor: <select id="cursor"  style="color: black;">
     <option value="default">Default</option>
     <option>always</option>
     <option>never</option>
     <option>motion</option>
 </select>
-
-displaySurface: <select id="displaySurface">
+&nbsp;&nbsp;&nbsp;
+Display Surface: <select id="displaySurface"  style="color: black;">
     <option value="default">Default</option>
     <option>monitor</option>
     <option>window</option>
     <option>application</option>
     <option>browser</option>
 </select>
-
-logicalSurface: <select id="logicalSurface">
+&nbsp;&nbsp;&nbsp;
+Logical Surface: <select id="logicalSurface"  style="color: black;">
     <option value="default">Default</option>
     <option>true</option>
 </select>
@@ -133,12 +147,9 @@ logicalSurface: <select id="logicalSurface">
 <br>
 </div>
 <br>
-<div style="margin-left: 300px;"> 
-     <button onclick="createRoom()" type="button" class="btn btn-primary btn-lg" id="createroom" style="width:300px;"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> Create Room</button> 
-     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <button onclick="JoinRoom()" type="button" class="btn btn-primary btn-lg" id="joinroom" style="width:350px;"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> Join Room</button>
-  </div>
-  </div>
+
+
+</div>
   <br>
         <div style="display: inline-block;">
         <p hidden="true" id="roomdes" style="font-size: 20px;"> Your Room Id is </p>
@@ -149,13 +160,13 @@ logicalSurface: <select id="logicalSurface">
 
     <!--<video id="sharedscreen" width="320" height="240" controls ></video>
     <button  id="connect" onclick="share_screen_connect()"> Sahre screen </button>-->
-<h2 style="background-color:#F08080;height:150px;text-align:center;font-size: 40px;color: white;font-weight: bolder;" id="games"><br><br>
-<i>GAMES</i>
+<h2 style="background-color:#5f5f5f;height:100px;text-align:center;font-size: 45px;color: white;font-weight: bolder;" id="games">
+<br>GAMES
 </h2>
 <div style="margin-left: 100px;">
  <button onclick="headsup()"  class="btn btn-primary btn-lg" style="width: 200px;height:200px;margin-left: 100px;font-size: 30px;font-weight: bolder;" >Heads UP!!</button><br>
  &nbsp;
- <a href="#headrules" style="font-size: 25px;">Heads Up Rules</a>
+ <a href="#headrules" style="font-size: 25px;color: white;">Heads Up Rules</a>
 <div id="headrules" class="overlay">
     <div class="popup">
         <h2>Heads up Rules</h2>
@@ -168,9 +179,10 @@ logicalSurface: <select id="logicalSurface">
 </div>
 <br><br><br><br><br><br><br>
 <br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br>
     <script src="https://www.webrtc-experiment.com/common.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
-
+<script data-ad-client="ca-pub-6664757619535898" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- Optional: include a polyfill for ES6 Promises for IE11 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.13/dist/sweetalert2.all.min.js"></script>
     <script src="js/script.js"></script>

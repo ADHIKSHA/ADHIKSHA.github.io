@@ -1,1 +1,170 @@
-var _0x5103=['settings:\x0a\x0a','value','getCapabilities','length','default','Please\x20use\x20HTTPs.','frameRate','HTTPs\x20is\x20required.','stringify','UnKnown','#resolutions','error','querySelector','name','Unable\x20to\x20capture\x20your\x20screen.\x0a\x0a','display','disabled','stack','style','height','getElementById','ended','forEach','keys','getSettings','srcObject','getTracks','getDisplayMedia','protocol','width','fit-screen','addEventListener','none','https:','inactive','capabilities:\x0a\x0a','cursor','#sharedscreen','720p','logicalSurface','catch','then','#cursor','480p','#share_screen','#settings','#displaySurface','displaySurface','1080p','mediaDevices','video','red','#capabilities','message'];(function(_0x3f69bd,_0x510318){var _0x35d817=function(_0x53702e){while(--_0x53702e){_0x3f69bd['push'](_0x3f69bd['shift']());}};_0x35d817(++_0x510318);}(_0x5103,0x16e));var _0x35d8=function(_0x3f69bd,_0x510318){_0x3f69bd=_0x3f69bd-0x0;var _0x35d817=_0x5103[_0x3f69bd];return _0x35d817;};var video=document['querySelector'](_0x35d8('0x31'));var button=document[_0x35d8('0x18')](_0x35d8('0x2'));var textarea=document[_0x35d8('0x18')](_0x35d8('0xa'));var settings=document[_0x35d8('0x18')](_0x35d8('0x3'));var aspectRatio=document[_0x35d8('0x18')]('#aspectRatio');var frameRate=document['querySelector']('#frameRate');var resolutions=document['querySelector'](_0x35d8('0x16'));var cursor=document[_0x35d8('0x18')](_0x35d8('0x0'));var displaySurface=document[_0x35d8('0x18')](_0x35d8('0x4'));var logicalSurface=document[_0x35d8('0x18')]('#logicalSurface');var yourVideo=document[_0x35d8('0x20')]('yourVideo');button['onclick']=function(){this[_0x35d8('0x1c')]=!![];invokeGetDisplayMedia(function(_0x4ee315){addStreamStopListener(_0x4ee315,function(){showMyFace();showFriendsFace();});yourVideo[_0x35d8('0x25')]=_0x4ee315;stream=pc['addStream'](_0x4ee315);showFriendsFace();var _0x4fbc03=_0x4ee315['getTracks']()[0x0][_0x35d8('0xe')]();capabilities[_0x35d8('0xd')]=_0x35d8('0x2f')+JSON[_0x35d8('0x14')](_0x4fbc03,null,'\x09');capabilities[_0x35d8('0x1e')][_0x35d8('0x1b')]='';var _0xd8baa4=_0x4ee315[_0x35d8('0x26')]()[0x0][_0x35d8('0x24')]();settings[_0x35d8('0xd')]=_0x35d8('0xc')+JSON[_0x35d8('0x14')](_0xd8baa4,null,'\x09');settings[_0x35d8('0x1e')][_0x35d8('0x1b')]='';},function(_0x189ee8){button[_0x35d8('0x1c')]=![];var _0x4b6d32={'name':_0x189ee8[_0x35d8('0x19')]||_0x35d8('0x15'),'message':_0x189ee8[_0x35d8('0xb')]||_0x35d8('0x15'),'stack':_0x189ee8[_0x35d8('0x1d')]||'UnKnown'};if(_0x4b6d32[_0x35d8('0x19')]==='PermissionDeniedError'){if(location[_0x35d8('0x28')]!==_0x35d8('0x2d')){_0x4b6d32[_0x35d8('0xb')]=_0x35d8('0x11');_0x4b6d32[_0x35d8('0x1d')]=_0x35d8('0x13');}}console[_0x35d8('0x17')](_0x4b6d32[_0x35d8('0x19')]);console[_0x35d8('0x17')](_0x4b6d32[_0x35d8('0xb')]);console[_0x35d8('0x17')](_0x4b6d32[_0x35d8('0x1d')]);alert(_0x35d8('0x1a')+_0x4b6d32['name']+'\x0a\x0a'+_0x4b6d32[_0x35d8('0xb')]+'\x0a\x0a'+_0x4b6d32[_0x35d8('0x1d')]);});};if(!navigator[_0x35d8('0x27')]&&!navigator[_0x35d8('0x7')][_0x35d8('0x27')]){var error='Your\x20browser\x20does\x20NOT\x20supports\x20getDisplayMedia\x20API.';document['querySelector']('h1')['innerHTML']=error;document[_0x35d8('0x18')]('h1')[_0x35d8('0x1e')]['color']=_0x35d8('0x9');document[_0x35d8('0x18')](_0x35d8('0x8'))[_0x35d8('0x1e')]['display']=_0x35d8('0x2c');button[_0x35d8('0x1e')][_0x35d8('0x1b')]=_0x35d8('0x2c');throw new Error(error);}function invokeGetDisplayMedia(_0x36ab12,_0x3519d2){var _0x46251a={};if(aspectRatio[_0x35d8('0xd')]!==_0x35d8('0x10')){_0x46251a['aspectRatio']=aspectRatio[_0x35d8('0xd')];}if(frameRate[_0x35d8('0xd')]!==_0x35d8('0x10')){_0x46251a[_0x35d8('0x12')]=frameRate[_0x35d8('0xd')];}if(cursor[_0x35d8('0xd')]!=='default'){_0x46251a[_0x35d8('0x30')]=cursor[_0x35d8('0xd')];}if(displaySurface['value']!==_0x35d8('0x10')){_0x46251a[_0x35d8('0x5')]=displaySurface[_0x35d8('0xd')];}if(logicalSurface[_0x35d8('0xd')]!==_0x35d8('0x10')){_0x46251a[_0x35d8('0x33')]=!![];}if(resolutions[_0x35d8('0xd')]!=='default'){if(resolutions[_0x35d8('0xd')]===_0x35d8('0x2a')){_0x46251a[_0x35d8('0x29')]=screen[_0x35d8('0x29')];_0x46251a[_0x35d8('0x1f')]=screen[_0x35d8('0x1f')];}if(resolutions['value']==='4K'){_0x46251a[_0x35d8('0x29')]=0xf00;_0x46251a[_0x35d8('0x1f')]=0x870;}if(resolutions[_0x35d8('0xd')]===_0x35d8('0x6')){_0x46251a[_0x35d8('0x29')]=0x780;_0x46251a['height']=0x438;}if(resolutions[_0x35d8('0xd')]===_0x35d8('0x32')){_0x46251a[_0x35d8('0x29')]=0x500;_0x46251a['height']=0x2d0;}if(resolutions['value']===_0x35d8('0x1')){_0x46251a[_0x35d8('0x29')]=0x355;_0x46251a[_0x35d8('0x1f')]=0x1e0;}if(resolutions['value']==='360p'){_0x46251a[_0x35d8('0x29')]=0x280;_0x46251a[_0x35d8('0x1f')]=0x168;}}if(!Object[_0x35d8('0x23')](_0x46251a)[_0x35d8('0xf')]){_0x46251a=!![];}var _0x2ddbdc={'video':_0x46251a};if(navigator[_0x35d8('0x7')][_0x35d8('0x27')]){navigator[_0x35d8('0x7')]['getDisplayMedia'](_0x2ddbdc)[_0x35d8('0x35')](_0x36ab12)[_0x35d8('0x34')](_0x3519d2);}else{navigator[_0x35d8('0x27')](_0x2ddbdc)['then'](_0x36ab12)[_0x35d8('0x34')](_0x3519d2);}}function addStreamStopListener(_0x33fd0d,_0x167617){_0x33fd0d['addEventListener'](_0x35d8('0x21'),function(){_0x167617();_0x167617=function(){};},![]);_0x33fd0d['addEventListener'](_0x35d8('0x2e'),function(){_0x167617();_0x167617=function(){};},![]);_0x33fd0d[_0x35d8('0x26')]()[_0x35d8('0x22')](function(_0x26ab75){_0x26ab75['addEventListener'](_0x35d8('0x21'),function(){_0x167617();_0x167617=function(){};},![]);_0x26ab75[_0x35d8('0x2b')](_0x35d8('0x2e'),function(){_0x167617();_0x167617=function(){};},![]);});}
+
+var video            = document.querySelector('#sharedscreen');
+var button           = document.querySelector('#share_screen');
+var textarea         = document.querySelector('#capabilities');
+var settings         = document.querySelector('#settings');
+var aspectRatio      = document.querySelector('#aspectRatio');
+var frameRate        = document.querySelector('#frameRate');
+var resolutions      = document.querySelector('#resolutions');
+var cursor           = document.querySelector('#cursor');
+var displaySurface   = document.querySelector('#displaySurface');
+var logicalSurface   = document.querySelector('#logicalSurface');
+var yourVideo   = document.getElementById("yourVideo");
+// var videoKind        = document.querySelector('#videoKind');
+
+button.onclick = function() {
+    this.disabled = true;
+    
+    invokeGetDisplayMedia(function(screen) {
+        addStreamStopListener(screen, function() {
+            //location.reload();
+            showMyFace();
+            showFriendsFace();
+        });
+        
+        yourVideo.srcObject = screen;
+       // pc.addStream(screen);
+        stream = pc.addStream(screen);
+       showFriendsFace();
+        var _capabilities = screen.getTracks()[0].getCapabilities();
+        capabilities.value = 'capabilities:\n\n' + JSON.stringify(_capabilities, null, '\t');
+        capabilities.style.display = '';
+
+        var _settings = screen.getTracks()[0].getSettings();
+        settings.value = 'settings:\n\n' + JSON.stringify(_settings, null, '\t');
+        settings.style.display = '';
+    }, function(e) {
+        button.disabled = false;
+
+        var error = {
+            name: e.name || 'UnKnown',
+            message: e.message || 'UnKnown',
+            stack: e.stack || 'UnKnown'
+        };
+
+        if(error.name === 'PermissionDeniedError') {
+            if(location.protocol !== 'https:') {
+                error.message = 'Please use HTTPs.';
+                error.stack   = 'HTTPs is required.';
+            }
+        }
+
+        console.error(error.name);
+        console.error(error.message);
+        console.error(error.stack);
+
+        alert('Unable to capture your screen.\n\n' + error.name + '\n\n' + error.message + '\n\n' + error.stack);
+    });
+};
+
+if(!navigator.getDisplayMedia && !navigator.mediaDevices.getDisplayMedia) {
+    var error = 'Your browser does NOT supports getDisplayMedia API.';
+    document.querySelector('h1').innerHTML = error;
+    document.querySelector('h1').style.color = 'red';
+
+    document.querySelector('video').style.display = 'none';
+    button.style.display = 'none';
+    throw new Error(error);
+}
+
+function invokeGetDisplayMedia(success, error) {
+    var videoConstraints = {};
+
+    if(aspectRatio.value !== 'default') {
+        videoConstraints.aspectRatio = aspectRatio.value;
+    }
+
+    if(frameRate.value !== 'default') {
+        videoConstraints.frameRate = frameRate.value;
+    }
+
+    if(cursor.value !== 'default') {
+        videoConstraints.cursor = cursor.value;
+    }
+
+    if(displaySurface.value !== 'default') {
+        videoConstraints.displaySurface = displaySurface.value;
+    }
+
+    if(logicalSurface.value !== 'default') {
+        videoConstraints.logicalSurface = true;
+    }
+
+    if(resolutions.value !== 'default') {
+        if (resolutions.value === 'fit-screen') {
+            videoConstraints.width = screen.width;
+            videoConstraints.height = screen.height;
+        }
+
+        if (resolutions.value === '4K') {
+            videoConstraints.width = 3840;
+            videoConstraints.height = 2160;
+        }
+
+        if (resolutions.value === '1080p') {
+            videoConstraints.width = 1920;
+            videoConstraints.height = 1080;
+        }
+
+        if (resolutions.value === '720p') {
+            videoConstraints.width = 1280;
+            videoConstraints.height = 720;
+        }
+
+        if (resolutions.value === '480p') {
+            videoConstraints.width = 853;
+            videoConstraints.height = 480;
+        }
+
+        if (resolutions.value === '360p') {
+            videoConstraints.width = 640;
+            videoConstraints.height = 360;
+        }
+
+        /*
+        videoConstraints.width = {
+            exact: videoConstraints.width
+        };
+
+        videoConstraints.height = {
+            exact: videoConstraints.height
+        };
+        */
+    }
+
+    if(!Object.keys(videoConstraints).length) {
+        videoConstraints = true;
+    }
+
+    var displayMediaStreamConstraints = {
+        video: videoConstraints
+    };
+
+    if(navigator.mediaDevices.getDisplayMedia) {
+        navigator.mediaDevices.getDisplayMedia(displayMediaStreamConstraints).then(success).catch(error);
+    }
+    else {
+        navigator.getDisplayMedia(displayMediaStreamConstraints).then(success).catch(error);
+    }
+}
+
+function addStreamStopListener(stream, callback) {
+    stream.addEventListener('ended', function() {
+        callback();
+        callback = function() {};
+    }, false);
+    stream.addEventListener('inactive', function() {
+        callback();
+        callback = function() {};
+    }, false);
+    stream.getTracks().forEach(function(track) {
+        track.addEventListener('ended', function() {
+            callback();
+            callback = function() {};
+        }, false);
+        track.addEventListener('inactive', function() {
+            callback();
+            callback = function() {};
+        }, false);
+    });
+}
