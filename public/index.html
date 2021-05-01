@@ -1,196 +1,50 @@
-<html>
-  <head>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-<style type="text/css">
-
-.overlay {
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background: rgba(0, 0, 0, 0.7);
-  transition: opacity 500ms;
-  visibility: hidden;
-  opacity: 0;
-}
-.overlay:target {
-  visibility: visible;
-  opacity: 1;
-}
-    .popup {
-  margin: 70px auto;
-  padding: 20px;
-  background: #fff;
-  border-radius: 5px;
-  width: 30%;
-  position: relative;
-  transition: all 5s ease-in-out;
-}
-
-.popup h2 {
-  margin-top: 0;
-  color: #333;
-  font-family: Tahoma, Arial, sans-serif;
-}
-.popup .close {
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  transition: all 200ms;
-  font-size: 30px;
-  font-weight: bold;
-  text-decoration: none;
-  color: #333;
-}
-.popup .close:hover {
-  color: #06D85F;
-}
-.popup .content {
-  max-height: 30%;
-  overflow: auto;
-}
-
-@media screen and (max-width: 700px){
-  .box{
-    width: 70%;
-  }
-  .popup{
-    width: 70%;
-  }
-}
-</style>
-  </head>
-  <body style="background-color: #3a3e4b;">
-	<br>
-     <p style="height: 50px;color:white ;font-weight:bolder;font-size: 30px;text-align: center;" id="main"> VC and MORE</p>
-
-
-     <div style="margin-left: 100px;">
-     	<div> 
-     <button onclick="showMyFace()" type="button" class="btn btn-primary btn-lg" id="createroom" style="width:300px;height:50px;border-radius: 12px;background-color: #1e1f26;border-color: black;"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> Open Camera and Audio</button>
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-     <button onclick="createRoom()" type="button" class="btn btn-primary btn-lg" id="createroom" style="width:175px;height:50px;border-radius: 12px;background-color: #1e1f26;border-color: black;"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> Create Room</button> 
-    <button onclick="JoinRoom()" type="button" class="btn btn-primary btn-lg" id="joinroom" style="width:175px;height:50px;border-radius: 12px;background-color: #1e1f26;border-color: black;"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> Join Room</button>
-    <button onclick="EndCall()" type="button" class="btn btn-primary btn-lg" id="joinroom" style="width:170px;height :50px;color: red;border-radius: 12px;background-color: #1e1f26;border-color: black;"><span class="glyphicon glyphicon-facetime-video" aria-hidden="true"></span> End Call</button>
-  </div>
-<br>
-</div>
-
-
-
-<div style="margin-left: 100px;">
-
-    <video id="yourVideo" style="width: 640px;height: 480px;border-style:solid;border-width: 2px; " muted playsinline controls autoplay ></video>
-    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <video id="friendsVideo" style="width: 640px;height: 480px;border-style:solid;border-width: 2px;" autoplay controls playsinline></video>
-    <br /> <br>
-
-<button  id="share_screen" style="width: 250px;height:50px;background-color: #31c933;border-radius: 12px;border-color:#31c933;color:white;font-size: 20px;text-align: center;color: black;" ><img src="css/shareicon.webp" style="height: 30px;width: 30px;"> Share Your screen </button>
-
-
-<br><br>
-
-
-<div style="font-size: 17px;color: white;">
-Screen Share Settings:- <br>
-
-Aspect Ratio: <select id="aspectRatio" style="color: black;">
-    <option value="default">Default</option>
-    <option value="1.77">16:9</option>
-    <option value="1.33">4:3</option>
-    <option value="2.35">21:9</option>
-    <option value="1.4">14:10</option>
-    <option value="1.9">19:10</option>
-</select>
-&nbsp;&nbsp;&nbsp;
-Frame Rate: <select id="frameRate"  style="color: black;">
-    <option value="default">Default</option>
-    <option>30</option>
-    <option>25</option>
-    <option>15</option>
-    <option>5</option>
-</select>
-&nbsp;&nbsp;&nbsp;
-Resolutions: <select id="resolutions"  style="color: black;">
-    <option value="default">Default</option>
-    <option value="fit-screen">Fit Screen</option>
-    <option>4K</option>
-    <option>1080p</option>
-    <option>720p</option>
-</select>
-&nbsp;&nbsp;&nbsp;
-Cursor: <select id="cursor"  style="color: black;">
-    <option value="default">Default</option>
-    <option>always</option>
-    <option>never</option>
-    <option>motion</option>
-</select>
-&nbsp;&nbsp;&nbsp;
-Display Surface: <select id="displaySurface"  style="color: black;">
-    <option value="default">Default</option>
-    <option>monitor</option>
-    <option>window</option>
-    <option>application</option>
-    <option>browser</option>
-</select>
-&nbsp;&nbsp;&nbsp;
-Logical Surface: <select id="logicalSurface"  style="color: black;">
-    <option value="default">Default</option>
-    <option>true</option>
-</select>
-
-<br>
-</div>
-<br>
-
-
-</div>
-  <br>
-        <div style="display: inline-block;">
-        <p hidden="true" id="roomdes" style="font-size: 20px;"> Your Room Id is </p>
-         </div>
-        <div style="display: inline-block;">
-        <input type="text" name="roomId" id="roomId" hidden="true" style="width: 200px;font-size: 20px;background-color: ">
-       </div>
-
-    <!--<video id="sharedscreen" width="320" height="240" controls ></video>
-    <button  id="connect" onclick="share_screen_connect()"> Sahre screen </button>-->
-<h2 style="background-color:#5f5f5f;height:100px;text-align:center;font-size: 45px;color: white;font-weight: bolder;" id="games">
-<br>GAMES
-</h2>
-<div style="margin-left: 100px;">
- <button onclick="headsup()"  class="btn btn-primary btn-lg" style="width: 200px;height:200px;margin-left: 100px;font-size: 30px;font-weight: bolder;" >Heads UP!!</button><br>
- &nbsp;
- <a href="#headrules" style="font-size: 25px;color: white;">Heads Up Rules</a>
-<div id="headrules" class="overlay">
-    <div class="popup">
-        <h2>Heads up Rules</h2>
-        <a class="close" href="">&times;</a>
-        <div class="content">
-            A movie will pop up on your screen. You have to act it out in 1 min. Then the timer goes off and your partner has to guess the movieby typing it in the prompt.Sounds Cool !?
-        </div>
-    </div>
-</div>
-</div>
-<br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br>
-    <script src="https://www.webrtc-experiment.com/common.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
-<script data-ad-client="ca-pub-6664757619535898" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<!-- Optional: include a polyfill for ES6 Promises for IE11 -->
-<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.10.13/dist/sweetalert2.all.min.js"></script>
-    <script src="js/script.js"></script>
-
-    <script src="js/games.js"></script>
-   <!-- <script src="js/screener.js"></script>-->
-    <script src="js/screen-sharing-min.js"></script>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css"
+			integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk="
+			crossorigin="anonymous"
+		/>
+		
+		<link rel="stylesheet" href="css/style.css" />
+		<title>SquashCord App</title>
+	</head>
+	<body>
+		<div class="join-container">
+			<header class="join-header">
+				<h1><i class="fas fa-smile"></i> SquashCord</h1>
+			</header>
+			<main class="join-main">
+				<form action="chat.html">
+					<div class="form-control">
+						<label for="username">Username</label>
+						<input
+							type="text"
+							name="username"
+							id="username"
+							placeholder="Enter username..."
+							required
+						/>
+					</div>
+					<div class="form-control">
+						<label for="room">Room</label>
+						<select name="room" id="room">
+							<option value="JavaScript">JavaScript</option>
+							<option value="Python">Python</option>
+							<option value="PHP">PHP</option>
+							<option value="C#">C#</option>
+							<option value="Ruby">Ruby</option>
+							<option value="Java">Java</option>
+						</select>
+					</div>
+					<button type="submit" class="btn">Join Chat</button>
+				</form>
+			</main>
+		</div>
+	</body>
 </html>
-
-
